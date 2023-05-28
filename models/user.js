@@ -6,6 +6,13 @@ class User extends Model {checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
 }};
 
+const validateEmail = function(email) {
+    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return re.test(email)
+};
+
+
+
 User.init( 
     {
         id: {
@@ -26,6 +33,8 @@ User.init(
             type: DataTypes.String,
             allowNull: false,
             unique: true,
+            validate: [validateEmail, 'Please fill in a valid email address'],
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
         }
     }
-)
+);
