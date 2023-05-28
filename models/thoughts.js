@@ -2,6 +2,7 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
+
 class Thought extends Model {}
 Thought.init(
     {
@@ -22,7 +23,18 @@ Thought.init(
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
-            defaultValue: new Date(),
-        }
-    }
-)
+            defaultValue: () => new Date().toISOString(),
+        },
+        toJSON: { 
+            getters: true, 
+            virtuals: true,
+        },
+        },
+        {
+            sequelize, 
+            timestamps: false, 
+            freezeTableName: true, 
+            underscored: true,
+            modelName: 'thought',
+        },
+    )
