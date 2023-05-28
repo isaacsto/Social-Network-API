@@ -1,14 +1,18 @@
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 const { Schema, model } = require('mongoose');
 
+class User extends Model {checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+}};
 
 const validateEmail = function(email) {
     let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return re.test(email)
 };
 
-
-
-const userSchema = new Schema ( 
+User.init( 
     {
         id: {
             type: DataTypes.INTEGER,
