@@ -1,9 +1,33 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
 const { Schema, model } = require('mongoose');
+const { reactionSchema } = require('reaction.js');
 
-class Thought extends Model {}
+const thoughtSchema = new Schema (
+    {
+        thoughtTest: {
+            type: String, 
+            required: true, 
+            validated: {
+                notEmpty: true,
+                len: [1, 280],
+            },
+        },
+        createdAt: {
+            type: Date, 
+            defaultValue: () => new Date().toISOString(),
+        },
+        username: {
+            type: String, 
+            required: true, 
+        },
+        reactions: [
+            reactionSchema,
+        ],
+    }
+)
+
+
+
+/* class Thought extends Model {}
 Thought.init(
     {
         id: {
@@ -47,4 +71,4 @@ Thought.init(
             underscored: true,
             modelName: 'thought',
         },
-    )
+    ) */

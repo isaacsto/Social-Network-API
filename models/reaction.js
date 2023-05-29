@@ -1,6 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require('bcrypt');
+
 const { Schema, model } = require('mongoose');
 
 const reactionSchema = new Schema (
@@ -28,3 +26,5 @@ const reactionSchema = new Schema (
           toJSON: { getters: true },
         },
 )
+
+module.exports = reactionSchema;
