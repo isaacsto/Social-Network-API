@@ -1,6 +1,8 @@
 const { ObjectId } = require('mongoose').Types;
 const { Student, Course } =  require('../models');
 const User = require('../models/user');
+const Thoughts = require('../models/thoughts');
+const Thought = require('../models/thoughts');
 
 
 const friendCount = async () => {
@@ -63,11 +65,34 @@ module.exports = {
             res.status(500).json(err);
          }
     },
+    
+    async getThoughts(req, res) {
+        try {
+            const thoughts = await  Thought.find();
+            res.json(Thoughts);
+        }catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    async getSingleThought (req, res) {
+        try {
+            const thought = await Thought.findOne({ _id: req.params.thoughtId })
+            .select('-__v');
+
+        if (!thought) {
+            return res.status(404).json({ message: "No thoughts head empty :/" });
+        }
+        res.json(thought);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
 
     async addThought(req, res) {
         try {
-            const userThought = await User.findOneAndUpdate(
-                { _id: req.params.userId },
+            const userThought = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId },
                 { $addToSet: { thoughts: req.body } },
                 { runValidators: true, new: true }
             );
@@ -84,7 +109,7 @@ module.exports = {
     },
     async deleteThought(req, res) {
         try {
-            const oldThought = await User.findOneAndUpdate(
+            const oldThought = await Thought.findOneAndUpdate(
                 { _id: req.params.studentId },
                 { $pull: { thought: { thoughtId: req.params.thoughtId } } },
                 { runValidators: true, new: true }
