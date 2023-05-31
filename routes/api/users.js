@@ -17,7 +17,7 @@ router.route('/:userId').get(getSingleUser).delete(deleteUser);
 
 router.route('/:userId/thought').get(getThoughts);
 
-route.rout('/:userId/thought/:thouthtId').get(getSingleThought);
+route.rout('/:userId/thought/:thoughtId').get(getSingleThought);
 
 router.route('/:userId/thought').post(addThought);
 

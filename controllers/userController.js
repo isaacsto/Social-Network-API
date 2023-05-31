@@ -1,5 +1,4 @@
 const { ObjectId } = require('mongoose').Types;
-const { Student, Course } =  require('../models');
 const User = require('../models/user');
 const Thoughts = require('../models/thoughts');
 const Thought = require('../models/thoughts');
