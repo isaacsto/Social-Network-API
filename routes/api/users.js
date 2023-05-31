@@ -4,6 +4,7 @@ const {
     getSingleUser,
     createUser,
     deleteUser, 
+    updateUser,
     getThoughts,
     getSingleThought,
     addThought, 
@@ -15,9 +16,11 @@ router.route('/').get(getUsers).post(createUser);
 
 router.route('/:userId').get(getSingleUser).delete(deleteUser);
 
+router.route('/:userId').put(updateUser);
+
 router.route('/:userId/thought').get(getThoughts);
 
-route.rout('/:userId/thought/:thoughtId').get(getSingleThought);
+router.route('/:userId/thought/:thoughtId').get(getSingleThought);
 
 router.route('/:userId/thought').post(addThought);
 
