@@ -41,11 +41,31 @@ async addThought(req, res) {
             .status(404)
             .json({ message: 'No user thought found' })
         }
-        res.json(student);
+        res.json(userThought);
     } catch (err) {
         res.status(500).json(err);
     }
 },
+
+async updateThought(req, res) {
+try {
+    const updatedThought = await Thought.findOneAndUpdate(
+        { _id: params.id }, body, {
+            new: true,
+            runValidators: true,
+          }
+    );
+    if(!updatedThought) {
+        return res
+        .status(404)
+        .json({ message : "No thought to update"})
+    }
+    res.json(updatedThought);
+} catch (err) {
+    res.status(500).json(err);
+}
+},
+
 async deleteThought(req, res) {
     try {
         const oldThought = await Thought.findOneAndUpdate(
@@ -101,5 +121,5 @@ async addReaction(req, res) {
 }
 }
 
-module.exports = thoughtController;
+module.exports = thoughtsController;
 
