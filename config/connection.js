@@ -1,15 +1,22 @@
-const Sequelize = require('sequelize');
-require('dotenv').config();
+const { connect, connection } = require('mongoose');
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306,
-  }
-);
 
-module.exports = sequelize;
+const connectionString =
+  process.env.MONGODB_URI || 'mongodb://localhost:3001/';
+
+
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+
+connection.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
+connection.once('open', () => {
+  console.log('Connected to MongoDB');
+});
+
+module.exports = connection;
