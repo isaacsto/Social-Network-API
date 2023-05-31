@@ -42,6 +42,28 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
+    async updateUser(req, res) {
+        try {
+          const updatedData = req.body; 
+          const userId = req.params.userId;
+      
+          const updatedUser = await User.findByIdAndUpdate(userId, updatedData, {
+            new: true, // Return the updated user in the response
+            runValidators: true, 
+          });
+      
+          if (!updatedUser) {
+            return res.status(404).json({ message: 'No user with that id' });
+          }
+      
+          res.json(updatedUser);
+        } catch (err) {
+          console.error(err);
+          res.status(500).json({ error: 'Internal server error' });
+        }
+      },
+      
+
 
     async createUser(req, res) {
         try {
