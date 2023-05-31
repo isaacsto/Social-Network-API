@@ -120,6 +120,3 @@ async addReaction(req, res) {
   }
 }
 }
-
-module.exports = thoughtsController;
-
