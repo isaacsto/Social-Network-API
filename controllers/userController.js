@@ -74,16 +74,41 @@ module.exports = {
     },
     async deleteUser (req, res) {
         try {
-            const oldUser = await User.findOneAndRemove({ _id: req.parans.userId });
+            const oldUser = await User.findOneAndRemove({ _id: req.params.userId });
     
             if (!oldUser) {
                 return res.status(404).json({ message: 'No such user'})
             }
-        res.json({ message: 'Student deleted' });
+        res.json({ message: 'User deleted' });
          } catch (err) {
             console.log(err);
             res.status(500).json(err);
          }
     },
+
+    async createFriend(req, res) {
+        try {
+            const newFriend = await User.create(req.body); 
+            res.json(newFriend);
+        } catch (err) { 
+            res.status(500).json(err);
+        }
     
-}
+},
+
+
+async deleteFriend (req, res) {
+    try {
+        const oldFriend = await User.findOneAndRemove({ _id: req.params.userId });
+
+        if (!oldFriend) {
+            return res.status(404).json({ message: 'No such friend'})
+        }
+    res.json({ message: 'Friend deleted' });
+     } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+     }
+},
+
+};
