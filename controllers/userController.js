@@ -1,13 +1,12 @@
 const { ObjectId } = require('mongoose').Types;
 const User = require('../models/user');
-const Thoughts = require('../models/thoughts');
-const Thought = require('../models/thoughts');
 
 
-const friendCount = async () => {
-const thisUser = await User.findOne({ _id: req.params.userId})
-return thisUser.friends.length
-}
+
+const friendCount = async (req, res) => {
+    const thisUser = await User.findOne({ _id: req.params.userId})
+    return thisUser.friends.length
+    }
 
 module.exports = {
     async getUsers(req, res) {
