@@ -6,7 +6,7 @@ const User = require('../models/user');
 const friendCount = async (req, res) => {
     const thisUser = await User.findOne({ _id: req.params.userId})
     return thisUser.friends.length
-    }
+    } 
 
 module.exports = {
     async getUsers(req, res) {
