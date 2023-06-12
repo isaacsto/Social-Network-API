@@ -12,9 +12,9 @@ const {
 
 /*   router
     .route('/:userId')
-    .post(addThought) */
+    .post(addThought) 
    
-
+ */
   router
     .route('/:userId/thoughts')
     .get(getThoughts);
@@ -28,6 +28,6 @@ const {
 
   router.route("/:thoughtId").post(addReaction);
 
-  router.route("/:thoughtId/:reactionId").delete(deleteReaction)
+  router.route("/:reactionId").delete(deleteReaction)
 
 module.exports = router;
