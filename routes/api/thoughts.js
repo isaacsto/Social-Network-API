@@ -12,8 +12,8 @@ const {
 
   router
     .route('/:userId/thoughts')
-    .get(getThoughts)
-    .post(addThought);
+    .post(addThought)
+    .get(getThoughts);
  
 
   router

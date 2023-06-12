@@ -1,5 +1,6 @@
 const { ObjectId } = require('mongoose').Types;
 const Thought = require('../models/thoughts');
+const User = require('../models/user');
 const { json } = require('express');
 
 module.exports = {
@@ -32,8 +33,9 @@ async getSingleThought (req, res) {
 
 async addThought(req, res) {
     try {
-        const userThought = await Thought.create(
-            { _id: req.params.thoughtId },
+   /*  const newthought = await Thought.create(req.body);  */
+        const userThought = await User.findOneAndUpdate(
+            { _id: req.params.userId },
             { $addToSet: { thoughts: req.body } },
             { runValidators: true, new: true }
         );
