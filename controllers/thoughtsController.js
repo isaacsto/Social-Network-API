@@ -102,6 +102,7 @@ async addReaction(req, res) {
          .status(404)
          .json({ message: "No thought with that id" });
         }
+        
         res.json(addReact);
         console.log(err);
      } catch(err){
