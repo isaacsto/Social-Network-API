@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
 const reactionSchema = new Schema (
     {
@@ -18,7 +18,7 @@ const reactionSchema = new Schema (
           createdAt: {
             type: Date,
             default: Date.now,
-            get: (timestamp) => new Date(timestamp).toLocalString(),
+            get: (timestamp) => new Date(timestamp).toLocaleString(),
           },
         },
         {

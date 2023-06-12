@@ -10,9 +10,9 @@ const {
 } = require("../../controllers/thoughtsController");
 
 
-  router
+/*   router
     .route('/:userId')
-    .post(addThought)
+    .post(addThought) */
    
 
   router
