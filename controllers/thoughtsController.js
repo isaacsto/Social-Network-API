@@ -55,7 +55,7 @@ async addThought(req, res) {
 async updateThought(req, res) {
 try {
     const updateThought = await Thought.findOneAndUpdate(
-        { _id: req.params.updateThoughtId }, 
+        { _id: req.params.thoughtId }, 
         { $set: req.body },
         { runValidators: true, new: true }
     );
@@ -74,7 +74,7 @@ try {
 async deleteThought(req, res) {
     try {
         const oldThought = await Thought.findOneAndRemove(
-            { _id: req.params.oldThoughtId },
+            { _id: req.params.thoughtId },
                 );
 
         if (!oldThought) {
