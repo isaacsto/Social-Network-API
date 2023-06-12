@@ -93,9 +93,9 @@ async deleteThought(req, res) {
 async addReaction(req, res) {
     try{ 
     const addReact = await Thought.findOneAndUpdate(
-      { _id: params.thoughtId },
-      { $addToSet: { reactions: body } },
-      { new: true, runValidators: true }
+      { _id: req.params.thoughtId },
+      { $addToSet: { reactions: req.body } },
+      { runValidators: true, new: true }
     );
         if (!addReact) {
          return res
@@ -103,10 +103,12 @@ async addReaction(req, res) {
          .json({ message: "No thought with that id" });
         }
         res.json(addReact);
+        console.log(err);
      } catch(err){
         res.status(500).json(err);
      }
     },
+
   async deleteReaction(req, res) {
     try {
     const deleteReaction = await Thought.findOneAndUpdate(
