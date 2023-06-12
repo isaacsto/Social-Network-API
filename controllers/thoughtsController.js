@@ -6,8 +6,12 @@ module.exports = {
 async getThoughts(req, res) {
     try {
         const thoughts = await  Thought.find();
+        const thoughtObj = {
+            thoughts, 
+        };
         res.json(Thought);
     }catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 },
