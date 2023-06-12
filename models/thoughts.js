@@ -15,10 +15,11 @@ const thoughtSchema = new Schema (
         createdAt: {
             type: Date, 
             defaultValue: () => new Date().toISOString(),
+            required: false,
         },
         username: {
             type: String, 
-            required: true, 
+            required: false, 
         },
         reactions: [
             reactionSchema,
