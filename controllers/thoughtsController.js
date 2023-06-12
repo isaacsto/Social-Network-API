@@ -27,6 +27,7 @@ async getSingleThought (req, res) {
     }
     res.json(thought);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 },
@@ -54,7 +55,7 @@ async addThought(req, res) {
 async updateThought(req, res) {
 try {
     const updateThought = await Thought.findOneAndUpdate(
-        { _id: params.updateThoughtId }, 
+        { _id: req.params.updateThoughtId }, 
         { $set: req.body },
         { runValidators: true, new: true }
     );
@@ -65,6 +66,7 @@ try {
     }
     res.json(updateThought);
 } catch (err) {
+    console.log(err);
     res.status(500).json(err);
 }
 },
@@ -83,6 +85,7 @@ async deleteThought(req, res) {
 
         res.json(oldThought);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 },

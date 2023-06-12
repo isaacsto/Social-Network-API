@@ -21,7 +21,7 @@ const {
  
 
   router
-    .route('/:userId/:thoughtId')
+    .route('/:thoughtId')
     .get(getSingleThought)
     .put(updateThought)
     .delete(deleteThought);
