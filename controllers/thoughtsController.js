@@ -53,18 +53,17 @@ async addThought(req, res) {
 
 async updateThought(req, res) {
 try {
-    const updatedThought = await Thought.findOneAndUpdate(
-        { _id: params.id }, body, {
-            new: true,
-            runValidators: true,
-          }
+    const updateThought = await Thought.findOneAndUpdate(
+        { _id: params.updateThoughtId }, 
+        { $set: req.body },
+        { runValidators: true, new: true }
     );
-    if(!updatedThought) {
+    if(!updateThought) {
         return res
         .status(404)
         .json({ message : "No thought to update"})
     }
-    res.json(updatedThought);
+    res.json(updateThought);
 } catch (err) {
     res.status(500).json(err);
 }
@@ -72,11 +71,9 @@ try {
 
 async deleteThought(req, res) {
     try {
-        const oldThought = await Thought.findOneAndUpdate(
-            { _id: req.params.studentId },
-            { $pull: { thought: { thoughtId: req.params.thoughtId } } },
-            { runValidators: true, new: true }
-        );
+        const oldThought = await Thought.findOneAndRemove(
+            { _id: req.params.oldThoughtId },
+                );
 
         if (!oldThought) {
             return res
@@ -89,6 +86,7 @@ async deleteThought(req, res) {
         res.status(500).json(err);
     }
 },
+
 async addReaction(req, res) {
     try{ 
     const addReact = await Thought.findOneAndUpdate(
