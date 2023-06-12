@@ -9,11 +9,11 @@ const {
   deleteReaction,
 } = require("../../controllers/thoughtsController");
 
-  router.route('/:userId').post(addThought);
 
   router
     .route('/:userId/thoughts')
     .get(getThoughts)
+    .post(addThought);
  
 
   router

@@ -32,7 +32,7 @@ async getSingleThought (req, res) {
 
 async addThought(req, res) {
     try {
-        const userThought = await Thought.findOneAndUpdate(
+        const userThought = await Thought.create(
             { _id: req.params.thoughtId },
             { $addToSet: { thoughts: req.body } },
             { runValidators: true, new: true }

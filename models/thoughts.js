@@ -10,6 +10,7 @@ const thoughtSchema = new Schema (
                 notEmpty: true,
                 len: [1, 280],
             },
+            
         },
         createdAt: {
             type: Date, 
