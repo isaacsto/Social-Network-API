@@ -2,11 +2,11 @@ const { ObjectId } = require('mongoose').Types;
 const User = require('../models/user');
 
 
-
+/* 
 const friendCount = async (req, res) => {
     const thisUser = await User.findOne({ _id: req.params.userId})
     return thisUser.friends.length
-    } 
+    }  */
 
 module.exports = {
     async getUsers(req, res) {
@@ -14,7 +14,7 @@ module.exports = {
             const users = await User.find();
             const userObj = {
                 users, 
-                friendCount: await friendCount(),
+         /*     friendCount: await friendCount(), */ 
             };
             return res.json(userObj);
         } catch (err) {
@@ -34,7 +34,7 @@ module.exports = {
 
             res.json({
                 user, 
-                friendCount: await friendCount(req.params.userId)
+               /*  friendCount: await friendCount(req.params.userId) */
             });
         } catch (err) {
             console.log(err);
