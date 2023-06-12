@@ -15,13 +15,13 @@ const {
     .post(addThought)
    
 
-    router
+  router
     .route('/:userId/thoughts')
     .get(getThoughts);
  
 
   router
-    .route('/:userId/thoughts/:thoughtId')
+    .route('/:userId/:thoughtId')
     .get(getSingleThought)
     .put(updateThought)
     .delete(deleteThought);
