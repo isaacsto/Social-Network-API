@@ -7,10 +7,10 @@ module.exports = {
 async getThoughts(req, res) {
     try {
         const thoughts = await  Thought.find();
-        const thoughtObj = {
+      /*   const thoughtObj = {
             thoughts, 
-        };
-        res.json(Thought);
+        }; */
+        res.json(thoughts);
     }catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -20,7 +20,7 @@ async getThoughts(req, res) {
 async getSingleThought (req, res) {
     try {
         const thought = await Thought.findOne({ _id: req.params.thoughtId })
-        .select('-__v');
+       /*  .select('-__v'); */
 
     if (!thought) {
         return res.status(404).json({ message: "No thoughts head empty :/" });
@@ -33,10 +33,10 @@ async getSingleThought (req, res) {
 
 async addThought(req, res) {
     try {
-   /*  const newthought = await Thought.create(req.body);  */
+    const newThought = await Thought.create(req.body); 
         const userThought = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $addToSet: { thoughts: req.body } },
+            { $addToSet: { thoughts: newThought._id } },
             { runValidators: true, new: true }
         );
 
