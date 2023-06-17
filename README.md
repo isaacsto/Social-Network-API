@@ -6,7 +6,9 @@ This application provides a backend API for a social media site. It allows users
 
 <img src="{https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white}" /> 
 
+![image]({https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white})
 
+![image]({https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white})
 
 # Routes
 
