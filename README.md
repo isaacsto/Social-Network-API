@@ -2,6 +2,12 @@
 
 This application provides a backend API for a social media site. It allows users to perform various actions such as adding and deleting friends, posting and deleting thoughts, and reacting to their friends' thoughts. The API is designed to support the following routes:
 
+<img src="{https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white}" /> 
+
+<img src="{https://img.shields.io/badge/Insomnia-5849be?style=for-the-badge&logo=Insomnia&logoColor=white}" /> 
+
+
+
 # Routes
 
 ## User Routes
@@ -11,6 +17,11 @@ GET /api/users/:userId: Retrieves information about a specific user.
 POST /api/users: Creates a new user.
 PUT /api/users/:userId: Updates information about a specific user.
 DELETE /api/users/:userId: Deletes a specific user.
+
+<img src="assets/getallusers.png">
+
+<img src="assets/updateuser.png">
+
 
 ## Friend Routes
 
@@ -24,10 +35,17 @@ POST /api/users/:userId/thoughts: Creates a new thought for a specific user.
 PUT /api/users/:userId/thoughts/:thoughtId: Updates information about a specific thought of a user.
 DELETE /api/users/:userId/thoughts/:thoughtId: Deletes a specific thought of a user.
 
+<img src="assets/thoughtpost.png">
+
+<img src="assets/getsinglethought>
+
 ## Reaction Routes
 
 POST /api/thoughts/:thoughtId/reactions: Adds a reaction to a specific thought.
 DELETE /api/thoughts/:thoughtId/reactions/:reactionId: Removes a reaction from a specific thought.
+
+
+<img src="assets/deletereaction.png">
 
 ## Getting Started
 
@@ -56,6 +74,6 @@ Please make sure your code follows the existing code style and includes appropri
 License
 This project is licensed under the MIT License.
 
-<img src="assets/Screenshot%202023-06-12%20at%2010.42.43%20AM.png">
+
 
 https://www.loom.com/share/1a8f654c408943c4adeac2db62f4e7a6

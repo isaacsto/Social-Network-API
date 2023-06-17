@@ -106,7 +106,7 @@ module.exports = {
             .then((user) => 
             !user 
             ? res.status(404).json({ message: "No friend with that ID found"})
-            : res.json(user)
+            : res.json({ message: "friend added !"})
         )
             .catch ((err) => 
             res.status(500).json(err));
@@ -133,7 +133,7 @@ async deleteFriend (req, res) {
         .then((user) => 
         !user
         ? res.status(404).json({ message: "No friends found with that Id"})
-        : res.json({ message: "User deleted successfully!"})
+        : res.json({ message: "friend deleted successfully!"})
         )
         .catch ((err) => 
         res.status(500).json(err))
