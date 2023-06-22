@@ -6,10 +6,10 @@ const { json } = require('express');
 module.exports = {
 async getThoughts(req, res) {
     try {
-        const thoughts = await  Thought.find();
-      /*   const thoughtObj = {
+        const thoughts = await Thought.find({ _id: req.params.thoughts });
+         const thoughtObj = {
             thoughts, 
-        }; */
+        }; 
         res.json(thoughts);
     }catch (err) {
         console.log(err);
