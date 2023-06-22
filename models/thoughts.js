@@ -8,7 +8,7 @@ const thoughtSchema = new Schema (
             required: true, 
             validated: {
                 notEmpty: true,
-                len: [1, 280],
+                maxlength: 280,
             },
             
         },

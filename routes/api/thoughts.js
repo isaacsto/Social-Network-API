@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const {
+  getAllThoughts,
   getThoughts,
   getSingleThought,
   addThought,
@@ -8,6 +9,11 @@ const {
   addReaction,
   deleteReaction,
 } = require("../../controllers/thoughtsController")
+
+
+  router
+    .route('/thoughts')
+    .get(getAllThoughts)
 
 
   router
