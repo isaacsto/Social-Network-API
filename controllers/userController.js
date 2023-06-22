@@ -113,7 +113,6 @@ module.exports = {
 
 
 async deleteFriend (req, res) {
-    console.log(":/ what did they do")
     console.log(req.body)
     User.findOneAndUpdate(
         {
