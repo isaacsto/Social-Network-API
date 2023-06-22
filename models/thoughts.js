@@ -3,7 +3,7 @@ const  reactionSchema  = require('./reaction.js');
 
 const thoughtSchema = new Schema (
     {
-        thoughtTest: {
+        thoughtText: {
             type: String, 
             required: true, 
             validated: {
@@ -19,11 +19,11 @@ const thoughtSchema = new Schema (
         },
         username: {
             type: String, 
-            required: false, 
+            required: true, 
         },
         reactions: [
             reactionSchema,
-        ],
+        ]
     }
 )
 
