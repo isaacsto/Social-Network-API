@@ -8,10 +8,10 @@ const User = require('../models/user');
 module.exports = {
     async getUsers(req, res) {
         try {
-            const users = await User.find().populate({
+            const users = await User.find()/* .populate({
                 path: 'friends',
-                select: '_id',
-            })
+                select: 'id'
+            }) */
             const userObj = {
                 users, 
             };
