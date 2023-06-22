@@ -12,7 +12,7 @@ const {
 
 
   router
-    .route('/thoughts')
+    .route('/')
     .get(getAllThoughts)
 
 
