@@ -2,19 +2,18 @@ const { ObjectId } = require('mongoose').Types;
 const User = require('../models/user');
 
 
-/* 
-const friendCount = async (req, res) => {
-    const thisUser = await User.findOne({ _id: req.params.userId})
-    return thisUser.friends.length
-    }  */
+
+
 
 module.exports = {
     async getUsers(req, res) {
         try {
-            const users = await User.find();
+            const users = await User.find().populate({
+                path: 'friends',
+                select: '_id',
+            })
             const userObj = {
                 users, 
-         /*     friendCount: await friendCount(), */ 
             };
             return res.json(userObj);
         } catch (err) {
