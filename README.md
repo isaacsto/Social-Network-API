@@ -11,28 +11,28 @@ This application provides a backend API for a social media site. It allows users
 
 ## User Routes
 
-GET /api/users: Retrieves a list of all users.
-GET /api/users/:userId: Retrieves information about a specific user.
-POST /api/users: Creates a new user.
-PUT /api/users/:userId: Updates information about a specific user.
-DELETE /api/users/:userId: Deletes a specific user.
+GET /api/users: Retrieves a list of all users. <br/>
+GET /api/users/:userId: Retrieves information about a specific user. <br/>
+POST /api/users: Creates a new user. <br/>
+PUT /api/users/:userId: Updates information about a specific user. <br/>
+DELETE /api/users/:userId: Deletes a specific user. <br/>
 
 <img src="assets/getallusers.png">
 
 <img src="assets/updateuser.png">
 
 
-## Friend Routes
+## Friend Routes <br/>
 
-GET /api/users/:userId/friends: Retrieves the list of friends for a specific user.
-POST /api/users/:userId/friends: Adds a new friend to a specific user.
-DELETE /api/users/:userId/friends/:friendId: Removes a friend from a specific user.
-Thought Routes
-GET /api/users/:userId/thoughts: Retrieves the list of thoughts for a specific user.
-GET /api/users/:userId/thoughts/:thoughtId: Retrieves information about a specific thought of a user.
-POST /api/users/:userId/thoughts: Creates a new thought for a specific user.
-PUT /api/users/:userId/thoughts/:thoughtId: Updates information about a specific thought of a user.
-DELETE /api/users/:userId/thoughts/:thoughtId: Deletes a specific thought of a user.
+GET /api/users/:userId/friends: Retrieves the list of friends for a specific user. <br/>
+POST /api/users/:userId/friends: Adds a new friend to a specific user. <br/>
+DELETE /api/users/:userId/friends/:friendId: Removes a friend from a specific user. <br/>
+Thought Routes <br/>
+GET /api/users/:userId/thoughts: Retrieves the list of thoughts for a specific user. <br/>
+GET /api/users/:userId/thoughts/:thoughtId: Retrieves information about a specific thought of a user. <br/>
+POST /api/users/:userId/thoughts: Creates a new thought for a specific user. <br/>
+PUT /api/users/:userId/thoughts/:thoughtId: Updates information about a specific thought of a user. <br/>
+DELETE /api/users/:userId/thoughts/:thoughtId: Deletes a specific thought of a user. <br/>
 
 <img src="assets/thoughtpost.png">
 
@@ -40,8 +40,8 @@ DELETE /api/users/:userId/thoughts/:thoughtId: Deletes a specific thought of a u
 
 ## Reaction Routes
 
-POST /api/thoughts/:thoughtId/reactions: Adds a reaction to a specific thought.
-DELETE /api/thoughts/:thoughtId/reactions/:reactionId: Removes a reaction from a specific thought.
+POST /api/thoughts/:thoughtId/reactions: Adds a reaction to a specific thought. <br/>
+DELETE /api/thoughts/:thoughtId/reactions/:reactionId: Removes a reaction from a specific thought. <br/>
 
 
 <img src="assets/deletereaction.png">
@@ -50,25 +50,18 @@ DELETE /api/thoughts/:thoughtId/reactions/:reactionId: Removes a reaction from a
 
 To set up and run the application locally, follow these steps:
 
-Clone the repository: git clone <repository-url>
-Install the dependencies: npm install
-Set up the environment variables by creating a .env file (you can use .env.example as a template)
-Start the application: npm start
-Make sure to replace <repository-url> with the actual URL of the repository.
+Clone the repository: git clone <repository-url> <br/>
+Install the dependencies: npm install <br/>
+Set up the environment variables by creating a .env file (you can use .env.example as a template) <br/>
+Start the application: npm start <br/>
+Make sure to replace <repository-url> with the actual URL of the repository. <br/>
 
 Technologies Used
-Node.js
-Express.js
-MongoDB
-Contributing
-Contributions are welcome! If you would like to contribute to this project, please follow these steps:
+Node.js <br/>
+Express.js <br/>
+MongoDB <br/>
 
-Fork the repository
-Create a new branch for your feature/fix: git checkout -b feature-name
-Commit your changes: git commit -am 'Add some feature'
-Push to the branch: git push origin feature-name
-Submit a pull request
-Please make sure your code follows the existing code style and includes appropriate tests.
+
 
 License
 This project is licensed under the MIT License.
