@@ -36,7 +36,7 @@ DELETE /api/users/:userId/thoughts/:thoughtId: Deletes a specific thought of a u
 
 <img src="assets/thoughtpost.png">
 
-<img src="assets/getsinglethought">
+
 
 ## Reaction Routes
 
